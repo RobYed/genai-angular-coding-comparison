@@ -14,7 +14,8 @@
 
 ## Instruction Following
 
-### Postivie
+### 
+Positive
 
 ### Negative
 
