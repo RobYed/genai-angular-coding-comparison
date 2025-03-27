@@ -1,0 +1,22 @@
+:root {
+  --preview-content-height: 80px;
+}
+
+/* For screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* For the full content scrollable area */
+#drawer-content.overflow-y-auto {
+  max-height: calc(100vh - 60px - var(--preview-content-height));
+  overflow-y: auto;
+}

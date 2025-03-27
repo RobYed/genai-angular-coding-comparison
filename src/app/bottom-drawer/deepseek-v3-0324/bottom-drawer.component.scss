@@ -1,0 +1,14 @@
+:host {
+  display: contents;
+}
+
+/* Ensure proper scrolling behavior */
+[preview-pontent] {
+  display: contents;
+}
+
+/* Focus styles for accessibility */
+[tabindex]:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

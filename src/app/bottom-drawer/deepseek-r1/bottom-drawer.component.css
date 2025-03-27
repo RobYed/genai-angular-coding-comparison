@@ -1,0 +1,38 @@
+.bottom-drawer-container {
+  @apply bg-white shadow-xl rounded-t-xl fixed bottom-0 left-0 right-0 z-50 overflow-hidden;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-drawer-container::before {
+  content: '';
+  @apply absolute bg-white w-10 h-10 rounded-full;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: inset(0 0 50% 0);
+  filter: drop-shadow(0 -4px 6px -1px rgba(0, 0, 0, 0.1));
+}
+
+.handle-container {
+  @apply flex justify-center pt-2 pb-3 cursor-pointer;
+}
+
+.handle {
+  @apply w-10 h-5 flex items-center justify-center;
+}
+
+.chevron {
+  @apply text-gray-600 transition-transform duration-300;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.preview-content {
+  @apply px-4 pb-2;
+}
+
+.full-content {
+  @apply px-4 pb-4;
+}

@@ -1,0 +1,56 @@
+<!-- Drawer Container -->
+<div
+  class="drawer-container fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-gray-800 shadow-[-4px_0px_15px_rgba(0,0,0,0.2)] rounded-t-2xl transition-all duration-300 ease-in-out flex flex-col"
+  [class.max-h-[85vh]]="isExpanded()"
+  [class.max-h-[50vh]]="!isExpanded()"  
+  (click)="onDrawerClick($event)" 
+>
+  <!-- Half Circle and Handle Area -->
+  <div class="handle-area relative h-5"> 
+    <!-- The ::before pseudo-element in SCSS creates the visible half-circle -->
+    <button
+      #handleButton
+      type="button"
+      aria-label="Toggle drawer"
+      [attr.aria-expanded]="isExpanded()"
+      aria-controls="drawer-content"
+      class="handle absolute left-1/2 -translate-x-1/2 -top-[20px] w-10 h-10 rounded-full bg-inherit dark:bg-inherit flex items-center justify-center cursor-pointer z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+      (click)="toggleDrawer()"
+    >
+      <!-- Chevron Icon (Heroicons example) -->
+      <svg
+        [@chevronRotate]="drawerAnimationState()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 text-gray-500 dark:text-gray-400 transition-transform duration-300 ease-in-out"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Content Wrapper - Manages padding and scrolling -->
+  <div
+    #contentWrapper
+    id="drawer-content"
+    class="content-wrapper flex-grow overflow-y-auto px-4 pb-4 pt-2" 
+    [style.maxHeight]="isExpanded() ? 'calc(85vh - 40px)' : 'auto'"
+  >
+    <!-- Always Visible Preview Content -->
+    <div class="preview-content">
+      <ng-content select="[preview-content]"></ng-content>
+      <!-- Typo correction: Use preview-content -->
+    </div>
+
+    <!-- Expandable Full Content Area -->
+    <div
+      class="full-content overflow-hidden" 
+      [@contentFade]="drawerAnimationState()"
+    >
+      <ng-content></ng-content> <!-- Selects content not marked with preview-content -->
+    </div>
+  </div>
+</div>

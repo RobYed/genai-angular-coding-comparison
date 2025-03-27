@@ -1,0 +1,40 @@
+<div class="fixed bottom-0 left-0 right-0 flex flex-col items-center z-50">
+  <!-- Handle button -->
+  <button 
+    class="w-10 h-10 bg-white rounded-full shadow-md flex justify-center items-center focus:outline-none relative z-10"
+    (click)="toggleDrawer()"
+    [attr.aria-expanded]="isExpanded"
+    aria-controls="drawer-content">
+    <span class="transform transition-transform duration-300" [ngClass]="{'rotate-180': isExpanded}">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </span>
+    <span class="sr-only">{{ isExpanded ? 'Collapse' : 'Expand' }} drawer</span>
+  </button>
+  
+  <!-- Main drawer container -->
+  <div 
+    class="w-full bg-white rounded-t-lg shadow-lg overflow-hidden -mt-5 pt-5"
+    [@drawerState]="drawerAnimationState"
+    #drawerContainer>
+    
+    <div class="px-4 pb-4">
+      <!-- Preview content (always visible) -->
+      <div class="w-full" #previewContentContainer>
+        <ng-content select="[preview-pontent]"></ng-content>
+      </div>
+      
+      <!-- Full content (only visible when expanded) -->
+      <div 
+        id="drawer-content"
+        class="w-full pt-4" 
+        [ngClass]="{'overflow-y-auto': isExpanded}"
+        [@contentFade]="contentAnimationState"
+        [class.hidden]="!isExpanded"
+        #fullContentContainer>
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

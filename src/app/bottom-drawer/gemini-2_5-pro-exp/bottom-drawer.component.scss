@@ -1,0 +1,72 @@
+// Import Tailwind base/components/utilities if not globally imported in styles.scss
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
+
+// Apply styles to the host element if needed, though classes on the root div in the template are often preferred
+// :host {
+//   display: block; // Ensures the component takes up space if needed outside the fixed container
+// }
+
+.drawer-container {
+  // Ensure smooth transition for max-height changes if needed (though content animation might be enough)
+  transition: max-height 300ms ease-in-out; 
+
+  // The half-circle shape using a pseudo-element
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px; // Half the height, pulls it upwards
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px; // As specified
+    height: 20px; // Half the width for a semi-circle effect visually
+    background-color: inherit; // Inherit background from parent
+    border-top-left-radius: 20px; // Fully rounded top corners
+    border-top-right-radius: 20px;
+    // Apply the same shadow as the container to blend seamlessly
+    // Using Tailwind's shadow variable or defining it explicitly
+    box-shadow: inherit; 
+    // Or manually match the shadow used on drawer-container:
+    // box-shadow: -4px 0px 15px rgba(0, 0, 0, 0.2); 
+  }
+}
+
+// Ensure the handle button visually sits within the pseudo-element space
+.handle-area {
+  .handle {
+     // Adjust positioning slightly if needed based on pseudo-element dimensions
+     // -top-[20px] in Tailwind should align it correctly with the ::before element
+  }
+}
+
+
+// Optional: Add custom scrollbar styling if desired
+.content-wrapper {
+  // Example: Webkit scrollbar styling
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5); // gray-400 with opacity
+    border-radius: 3px;
+  }
+
+  // Dark mode scrollbar
+  @media (prefers-color-scheme: dark) {
+    &::-webkit-scrollbar-thumb {
+       background-color: rgba(75, 85, 99, 0.5); // gray-600 with opacity
+    }
+  }
+}
+
+// Refine full content animation - ensure it's hidden correctly when collapsed
+.full-content {
+    // The [@contentFade] animation handles opacity, transform, and max-height
+    // The overflow-hidden here clips the content during the max-height transition
+}
