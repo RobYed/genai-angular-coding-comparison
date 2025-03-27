@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   ContentChild,
@@ -11,6 +12,8 @@ import {
 
 @Component({
   selector: 'app-bottom-drawer',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './bottom-drawer.component.html',
   styleUrls: ['./bottom-drawer.component.scss'],
   encapsulation: ViewEncapsulation.None,
