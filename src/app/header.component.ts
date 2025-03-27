@@ -13,7 +13,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <nav>
             <ul class="flex space-x-6">
               <li><a routerLink="/" routerLinkActive="text-indigo-200" [routerLinkActiveOptions]="{exact: true}" class="text-white hover:text-indigo-200 font-medium">Home</a></li>
-              <li><a routerLink="/drawer-example" routerLinkActive="text-indigo-200" class="text-white hover:text-indigo-200 font-medium">Drawer Example</a></li>
               <li><a href="#" class="text-white hover:text-indigo-200 font-medium">About</a></li>
               <li><a href="#" class="text-white hover:text-indigo-200 font-medium">Contact</a></li>
             </ul>

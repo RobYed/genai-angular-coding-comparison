@@ -3,8 +3,8 @@ import { BottomDrawerComponent } from './bottom-drawer.component';
 
 @Component({
   selector: 'app-gemini-example',
-  standalone: true
-  imports: [BottomDrawerComponent]
+  standalone: true,
+  imports: [BottomDrawerComponent],
   template: 
     `<app-bottom-drawer>
         <!-- Preview Content - Marked with 'preview-content' -->
@@ -35,4 +35,4 @@ import { BottomDrawerComponent } from './bottom-drawer.component';
         </div>
     </app-bottom-drawer>`
 })
-export GeminiExampleComponent {}
+export class GeminiExampleComponent {}

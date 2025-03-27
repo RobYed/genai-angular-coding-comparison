@@ -3,8 +3,8 @@ import { BottomDrawerComponent } from './bottom-drawer.component';
 
 @Component({
   selector: 'app-deepseek-r1-example',
-  standalone: true
-  imports: [BottomDrawerComponent]
+  standalone: true,
+  imports: [BottomDrawerComponent],
   template: 
    `<app-bottom-drawer>
       <ng-container preview-pontent>
@@ -19,4 +19,4 @@ import { BottomDrawerComponent } from './bottom-drawer.component';
       <button>Some CTA</button>
     </app-bottom-drawer>`
 })
-export DeepseekR1ExampleComponent {}
+export class DeepseekR1ExampleComponent {}
