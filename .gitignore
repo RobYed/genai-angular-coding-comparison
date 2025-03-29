@@ -1,3 +1,7 @@
 .angular
 dist
 node_modules
+post
+*.png
+sonnet-code-evals
+.idea

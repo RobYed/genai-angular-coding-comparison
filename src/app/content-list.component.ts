@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DeepseekV3ExampleComponent } from './bottom-drawer/deepseek-v3-0324/example.component';
+import { GeminiExampleComponent } from './bottom-drawer/gemini-2_5-pro-exp/example.component';
 
 interface ListItem {
   id: number;
@@ -12,7 +12,7 @@ interface ListItem {
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [DeepseekV3ExampleComponent],
+  imports: [GeminiExampleComponent  ],
   template: `
     <div class="container mx-auto px-4 py-8">
       <h2 class="text-2xl font-semibold mb-6 text-gray-800">Exploring AI Concepts</h2>
@@ -42,7 +42,7 @@ interface ListItem {
           </div>
         }
       </div>
-      <app-deepseek-v3-example />
+      <app-gemini-example />
     </div>
   `,
 })

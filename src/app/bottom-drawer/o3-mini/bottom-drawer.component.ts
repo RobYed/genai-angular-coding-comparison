@@ -6,9 +6,12 @@ import {
   transition,
   animate
 } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bottom-drawer',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './bottom-drawer.component.html',
   styleUrls: ['./bottom-drawer.component.css'],
   animations: [

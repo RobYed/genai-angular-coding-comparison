@@ -1,8 +1,11 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, HostListener, ChangeDetectorRef } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bottom-drawer',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './bottom-drawer.component.html',
   styleUrls: ['./bottom-drawer.component.css'],
   animations: [
