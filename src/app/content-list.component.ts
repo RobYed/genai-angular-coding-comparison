@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GeminiExampleComponent } from './bottom-drawer/gemini-2_5-pro-exp/example.component';
+import { GptOssExampleComponent } from './bottom-drawer/gpt-oss-20b/example.component';
+import { Qwen3CoderExampleComponent } from './bottom-drawer/qwen3-coder-30b/example.component';
 
 interface ListItem {
   id: number;
@@ -12,7 +13,7 @@ interface ListItem {
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [GeminiExampleComponent  ],
+  imports: [Qwen3CoderExampleComponent],
   template: `
     <div class="container mx-auto px-4 py-8">
       <h2 class="text-2xl font-semibold mb-6 text-gray-800">Exploring AI Concepts</h2>
@@ -42,7 +43,7 @@ interface ListItem {
           </div>
         }
       </div>
-      <app-gemini-example />
+      <app-qwen3-coder-example />
     </div>
   `,
 })

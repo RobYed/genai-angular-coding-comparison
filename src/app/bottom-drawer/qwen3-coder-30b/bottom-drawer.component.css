@@ -1,0 +1,14 @@
+/* bottom-drawer.component.css */
+:host {
+  display: block;
+}
+
+/* Ensure the drawer doesn't exceed viewport height */
+app-bottom-drawer {
+  max-height: 90vh;
+}
+
+/* Ensure content scrolls properly */
+app-bottom-drawer .overflow-y-auto {
+  max-height: calc(100vh - 150px);
+}
