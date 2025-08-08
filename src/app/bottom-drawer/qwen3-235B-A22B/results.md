@@ -1,0 +1,2 @@
+- standalone manuell umgestellt
+- example component nur HTML

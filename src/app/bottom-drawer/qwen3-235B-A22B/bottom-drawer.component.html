@@ -1,0 +1,43 @@
+<div class="drawer-container" [style.height.px]="currentHeight">
+    <!-- Handle Button -->
+    <button
+      class="absolute left-1/2 transform -translate-x-1/2 top-0 mt-1 focus:outline-none focus:ring-2 ring-blue-500 rounded-full p-1"
+      (click)="toggle()"
+      [attr.aria-expanded]="expanded"
+      aria-controls="drawer-content"
+      [attr.aria-label]="expanded ? 'Collapse drawer' : 'Expand drawer'"
+    >
+      <svg
+        class="w-6 h-6 text-gray-600 transition-transform duration-300 ease-in-out"
+        [class.rotate-180]="expanded"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        ></path>
+      </svg>
+    </button>
+  
+    <!-- Scrollable Content Wrapper -->
+    <div id="drawer-content" class="content-wrapper overflow-y-auto p-4 pt-8">
+      <!-- Always Visible Preview Content -->
+      <div #previewContent class="preview-content">
+        <ng-content select="[preview-pontent]"></ng-content>
+      </div>
+  
+      <!-- Expandable Full Content -->
+      <div
+        #fullContent
+        class="full-content transition-all duration-300 ease-in-out"
+        [class.opacity-0.translate-y-2]="!expanded"
+        [class.opacity-100.translate-y-0]="expanded"
+      >
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
