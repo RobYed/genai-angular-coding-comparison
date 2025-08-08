@@ -1,0 +1,45 @@
+<div
+  #drawer
+  class="fixed inset-x-0 bottom-0 mx-auto max-w-full rounded-t-lg bg-white shadow-xl transition-all ease-in-out"
+  [@drawerHeight]="expanded ? 'expanded' : { value: 'collapsed', params: { collapsedHeight } }"
+  role="region"
+  aria-labelledby="bottom-drawer-handle"
+>
+  <!-- Half‑circle handle -->
+  <div class="handle-container">
+    <button
+      id="bottom-drawer-handle"
+      type="button"
+      (click)="toggle()"
+      class="focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-full bg-white shadow-md w-10 h-10 flex items-center justify-center mx-auto -mt-5 relative z-20 cursor-pointer"
+      [attr.aria-label]="expanded ? 'Collapse drawer' : 'Expand drawer'"
+    >
+      <!-- Chevron icon -->
+      <svg
+        class="w-5 h-5 text-indigo-600 transition-transform duration-200"
+        [ngClass]="{ 'rotate-180': expanded }"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 overflow-y-auto max-h-screen">
+    <!-- Preview content – always visible -->
+    <ng-content select="[preview-pontent]"></ng-content>
+
+    <!-- Full content – only when expanded -->
+    <div
+      *ngIf="expanded"
+      [@fullContent]
+      class="mt-4 space-y-3 opacity-100 transition-opacity duration-200"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
