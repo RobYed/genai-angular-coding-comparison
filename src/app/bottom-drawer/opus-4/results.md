@@ -1,0 +1,2 @@
+- imports in der example component haben gefehlt
+- ansonsten hat alles direkt funktioniert
